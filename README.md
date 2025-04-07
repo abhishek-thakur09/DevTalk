@@ -9,7 +9,19 @@
 - Routing in our application (Use - react router Package),
 - Outlet in React Routing
 - Create footer
-- 
+- Create a Login Page
+- Install Axios npm package to use apies
+- CORS - install cors in backend => add middleware to with configuration : orgin:http://localhost:5173 and credential: true,
+- whenever you're making any api call so pass axios=> {withCredential:true}
+- Install react redux + toolkit toolkit => create configueStore => Provider => CreateSlice => addreducer to store
+
+- Add redux devtools in chrome
+- login and see if your data is properly coming in the store
+- Navbar should update as soon as User loggedIn
+- Refactor our code to add constants files + create a component folder
+
+
+
 
 
 
