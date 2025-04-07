@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addUser } from './utils/UserSlice';
+import { addUser } from '../utils/UserSlice';
 import { useNavigate } from 'react-router-dom';
-import { Base_Url } from './utils/Constant';
+import { Base_Url } from '../utils/Constant';
 
 
 
