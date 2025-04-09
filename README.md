@@ -19,8 +19,19 @@
 - login and see if your data is properly coming in the store
 - Navbar should update as soon as User loggedIn
 - Refactor our code to add constants files + create a component folder
+- You should not able to access other routes without Login
+- if token is not present redirect user to login page
+- Logout
+- Profile
 
 
+
+
+
+# INTERVIEW QUESTIONS
+ 
+# why our APIs called twice ?
+ans: Due to the strict mode in main.js..
 
 
 

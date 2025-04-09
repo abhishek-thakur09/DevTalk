@@ -5,6 +5,8 @@ import Profile from "./src/Components/Profile"
 import { Provider } from "react-redux"
 import appStore from "./src/utils/appStore"
 import Feed from "./src/Components/Feed";
+import Navbar from "./src/Components/Navbar"
+import Footer from "./src/Components/Footer"
 
 function App() {
 
@@ -12,15 +14,15 @@ function App() {
     <>
       <Provider store={appStore}>
         <BrowserRouter basename="/">
+        <Navbar></Navbar>
           <Routes>
-            <Route path="/" element={<Body />}>
+            <Route path="/" element={<Body />}></Route>
             <Route path="/" element={<Feed />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
 
-            </Route>
-
           </Routes>
+    <Footer></Footer>
         </BrowserRouter>
       </Provider>
     </>
