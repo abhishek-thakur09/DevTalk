@@ -9,7 +9,10 @@ import { Base_Url } from '../utils/Constant';
 
 
 const Login = () => {
-  
+
+  const [error, setError] = useState("");
+
+
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -27,7 +30,8 @@ const handleLogin = async()=>{
   return navigate("/");
   }
   catch(err){
-    console.log(err);
+    setError(err?.response?.data || "something went wrong");
+    // console.log(err?.response?.data || "something went wrong");
   }
 }
 
@@ -58,6 +62,7 @@ const handleLogin = async()=>{
               />
             </fieldset>
           </div>
+            <p className='text-red-600 text-sm'>{error}</p>
           <div className="justify-end card-actions flex justify-center">
             <button className="btn bg-green-200" onClick={handleLogin}>Login</button>
           </div>

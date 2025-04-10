@@ -15,40 +15,42 @@ const Navbar = () => {
   console.log(user);
 
 
-// ------------>LOGIC for logout  
+  // ------------>LOGIC for logout  
   const dispatch = useDispatch();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
-  
 
-  const handleLogout = async()=>{
 
-      try{
-          const res = await axios.post(Base_Url + "/logout", {},{
-              withCredentials: true
-          });
-          dispatch(removeUser(res.data));
+  const handleLogout = async () => {
 
-          return  Navigate("/login");
-      }
-      catch(err){
-          console.log(err);
-      }
+    try {
+      const res = await axios.post(Base_Url + "/logout",
+         {},
+         {withCredentials: true}
+        );
+      dispatch(removeUser(res.data));
+      return navigate("/login");
+    }
+    catch (err) {
+      // Error msg maybe redirect you to the login page
+
+      console.log(err);
+    }
   }
 
   return (
     <>
       <div className="navbar  bg-orange-200 shadow-sm">
         <div className="flex-1">
-          <Link to="/"  className="btn btn-ghost text-xl mx-1">DevTalk💻</Link>
+          <Link to="/" className="btn btn-ghost text-xl mx-1">DevTalk💻</Link>
         </div>
         <div className="flex gap-2 mx-10">
-             {user && user.firstName ?(
-             <p className='my-2'> Welcome, {user.firstName}</p>
-             ):(<p>Welcome, Guest</p>)
-            }
-                
-        { user && ( <div className="dropdown dropdown-end">
+          {user && user.firstName ? (
+            <p className='my-2'> Welcome, {user.firstName}</p>
+          ) : (<p>Welcome, Guest</p>)
+          }
+
+          {user && (<div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
@@ -68,14 +70,14 @@ const Navbar = () => {
               <li><a>Settings</a></li>
               <li>
                 <a onClick={handleLogout}>Logout</a>
-                </li>
+              </li>
             </ul>
           </div>
-        )}
+          )}
         </div>
       </div>
     </>
-    )
+  )
 };
 
 export default Navbar

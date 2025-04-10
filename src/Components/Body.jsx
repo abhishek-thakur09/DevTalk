@@ -29,7 +29,6 @@ const Body = () => {
       if(!userData){
         navigate("/login");
       }
-
       console.log(err);
     }
   }
@@ -39,10 +38,10 @@ const Body = () => {
   }, []);
 
   return (
-    <>
-      <Outlet></Outlet>
+    <div>
+      <Outlet/>
       <Footer />
-    </>
+    </div>
   )
 }
 

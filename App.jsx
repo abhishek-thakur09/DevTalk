@@ -14,7 +14,7 @@ function App() {
     <>
       <Provider store={appStore}>
         <BrowserRouter basename="/">
-        <Navbar></Navbar>
+        <Navbar/>
           <Routes>
             <Route path="/" element={<Body />}></Route>
             <Route path="/" element={<Feed />}></Route>
@@ -22,7 +22,7 @@ function App() {
               <Route path="/profile" element={<Profile />}></Route>
 
           </Routes>
-    <Footer></Footer>
+          <Footer/>
         </BrowserRouter>
       </Provider>
     </>
