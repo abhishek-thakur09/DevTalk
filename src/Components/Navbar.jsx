@@ -11,29 +11,25 @@ import { removeUser } from '../utils/UserSlice'
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
-
-  console.log(user);
-
-
+  console.log(user); 
   // ------------>LOGIC for logout  
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userData = useSelector((store) => store.user);
+  // const userData = useSelector((store) => store.user);
 
 
   const handleLogout = async () => {
 
     try {
       const res = await axios.post(Base_Url + "/logout",
-         {},
-         {withCredentials: true}
-        );
-      dispatch(removeUser(res.data));
+        {},
+        { withCredentials: true }
+      );
+      dispatch(removeUser());
       return navigate("/login");
     }
     catch (err) {
       // Error msg maybe redirect you to the login page
-
       console.log(err);
     }
   }
@@ -44,37 +40,34 @@ const Navbar = () => {
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-xl mx-1">DevTalk💻</Link>
         </div>
-        <div className="flex gap-2 mx-10">
-          {user && user.firstName ? (
+        {user && (
+          <div className="flex gap-2 mx-10">
             <p className='my-2'> Welcome, {user.firstName}</p>
-          ) : (<p>Welcome, Guest</p>)
-          }
-
-          {user && (<div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src={user.photoUrl} />
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user.photoUrl} />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-orange-300 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                <li>
+                  <Link to="/profile" className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li><a>Settings</a></li>
+                <li>
+                  <a onClick={handleLogout}>Logout</a>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-orange-300 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li>
-                <Link to="/profile" className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <li><a>Settings</a></li>
-              <li>
-                <a onClick={handleLogout}>Logout</a>
-              </li>
-            </ul>
           </div>
-          )}
-        </div>
+        )}
       </div>
     </>
   )

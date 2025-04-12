@@ -25,12 +25,12 @@ const handleLogin = async()=>{
       password,
     },{withCredentials: true}
   );
-  console.log(res)
+  // console.log(res.data)
   dispatch(addUser(res.data));
-  return navigate("/");
+   return navigate("/");
   }
   catch(err){
-    setError(err?.response?.data || "something went wrong");
+    setError(err?.response?.data.message || "something went wrong");
     // console.log(err?.response?.data || "something went wrong");
   }
 }
