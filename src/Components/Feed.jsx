@@ -35,8 +35,7 @@ const Feed = () => {
 
     return (
         <div className='flex justify-center'>
-            <UserCard  user = {feed[7]}/>
-            <p className='text-2xl'>feed</p>
+            <UserCard  user = {feed[1]}/>
         </div>
     );
 };

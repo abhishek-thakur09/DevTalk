@@ -11,8 +11,6 @@ import { Base_Url } from '../utils/Constant';
 const Login = () => {
 
   const [error, setError] = useState("");
-
-
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();

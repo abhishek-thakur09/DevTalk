@@ -11,7 +11,7 @@ import { removeUser } from '../utils/UserSlice'
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
-  console.log(user); 
+  // console.log(user); 
   // ------------>LOGIC for logout  
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar  bg-orange-200 shadow-sm">
+      <div className="navbar flex w-full  bg-orange-200 shadow-sm ">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-xl mx-1">DevTalk💻</Link>
         </div>
@@ -58,6 +58,11 @@ const Navbar = () => {
                   <Link to="/profile" className="justify-between">
                     Profile
                     <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/" className="justify-between">
+                    feed
                   </Link>
                 </li>
                 <li><a>Settings</a></li>
