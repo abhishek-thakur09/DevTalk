@@ -24,8 +24,11 @@
 - Logout
 - Profile
 - make UI as better you can
-
-
+- Get the feed and add the feed into the store
+- built the user card on feed
+- Edit profile Feature
+- Show Toast Message on saveof Profile
+- See all my connections
 
 
 
