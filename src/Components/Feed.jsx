@@ -14,7 +14,6 @@ const Feed = () => {
 
         try {
             const res = await axios.get(Base_Url + "/user/feed", { withCredentials: true });
-            console.log(res?.data);
 
             dispatch(addFeed(res?.data));
         }
