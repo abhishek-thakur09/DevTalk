@@ -58,7 +58,7 @@ const Request = () => {
                         return (
                             <div key={_id} className='flex justify-between items-center w-1/2 m-4 py-7 h-38 bg-orange-300 rounded shadow-2xl'>
                                 {/* Image */}
-                                <div> <img className='w-20 h-20 m-2 rounded-full object-contain' src={photoUrl}></img></div>
+                                <div> <img className='w-20 h-20 m-2 rounded-full object-contain' src={photoUrl || null}></img></div>
                                 {/* INformation */}
                                 <div>
                                     <div className='font-bold text-xl'>{firstName + " " + lastName}</div>
