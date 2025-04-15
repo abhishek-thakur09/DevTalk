@@ -30,11 +30,11 @@ const Feed = () => {
     if (!feed) return;
 
     if (feed.length <= 0)
-        return <h1 className='flex justify-center my-10'>No new users founds</h1>
+        return <h1 className='flex text-center justify-center my-10 font-semibold text-2xl text-orange-600'>No new users found</h1>
 
     return (
         <div className='flex justify-center'>
-            <UserCard  user = {feed[1]}/>
+            <UserCard  user = {feed[0]}/>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/UserSlice';
 import { useNavigate } from 'react-router-dom';
 import { Base_Url } from '../utils/Constant';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,7 +35,7 @@ const handleLogin = async()=>{
 }
 
   return (
-    <div className='flex justify-center my-10'>
+    <div className='flex justify-center my-4'>
       <div className="card w-80 bg-orange-300 card-xl shadow-lg">
         <div className="card-body">
           <h2 className="card-title flex justify-center text-3xl">Login</h2>
@@ -62,7 +63,11 @@ const handleLogin = async()=>{
           </div>
             <p className='text-red-600 text-sm'>{error}</p>
           <div className="justify-end card-actions flex justify-center">
-            <button className="btn bg-green-200" onClick={handleLogin}>Login</button>
+            <button className="btn bg-green-200 hover:bg-green-500" onClick={handleLogin}>Login</button>
+          </div>
+          <div className='flex text-sm justify-between my-2'>
+          <div >forgot Password</div>
+          <div ><Link to="/signup" className='hover:text-blue-900'>create new user?</Link></div>
           </div>
         </div>
       </div>

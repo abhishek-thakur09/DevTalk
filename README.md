@@ -30,10 +30,10 @@
 - Show Toast Message on saveof Profile
 - New Page - See all my connections
 - New Page - See all my Conncetion Requests
+- send/Ignore the usercard and feed
 
 
 # Remaining
-- send/Ignore the usercard and feed
 - SignUp new User
 - E2E testing
 

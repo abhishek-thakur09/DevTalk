@@ -61,6 +61,11 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/signup">
+                    SignUp
+                  </Link>
+                </li>
+                <li>
                   <Link to="/" className="justify-between">
                     feed
                   </Link>

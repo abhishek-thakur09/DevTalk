@@ -109,18 +109,18 @@ const EditProfile = ({ user }) => {
                     />
 
                     {/* change popover-1 and --anchor-1 names. Use unique names for each dropdown */}
-{/* For TSX uncomment the commented types below */}
-{/* <button className="btn" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
-  {/* Gender */}
-{/* </button> */}
+                    {/* For TSX uncomment the commented types below */}
+                    {/* <button className="btn" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
+                    {/* Gender */}
+                    {/* </button> */}
 
-{/* <ul className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+                    {/* <ul className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
   popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */ }
-  {/* <li><a>male</a></li>
+                    {/* <li><a>male</a></li>
   <li><a>female</a></li>
   <li><a>others</a></li> */}
 
-{/* </ul>   */}
+                    {/* </ul>   */}
                   </fieldset>
                 </div>
               </div>
@@ -128,11 +128,24 @@ const EditProfile = ({ user }) => {
               <div>
                 <fieldset className="fieldset">
                   <legend className="fieldset-legend font-bold">PhotoUrl</legend>
-                  <input type="text"
+                  {/* <input type="text"
                     value={photoUrl}
                     className="input  bg-orange-100"
                     onChange={(e) => setphotoUrl(e.target.value)}
+                  /> */}
+
+
+                  <input
+                    type="file"
+                    className="file-input bg-orange-100"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (file) {
+                        setphotoUrl(URL.createObjectURL(file));
+                      }
+                    }}
                   />
+
                 </fieldset>
               </div>
 
