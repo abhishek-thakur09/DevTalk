@@ -31,10 +31,9 @@
 - New Page - See all my connections
 - New Page - See all my Conncetion Requests
 - send/Ignore the usercard and feed
-
+- SignUp new User
 
 # Remaining
-- SignUp new User
 - E2E testing
 
 

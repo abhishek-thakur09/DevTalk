@@ -142,6 +142,13 @@ const EditProfile = ({ user }) => {
                       const file = e.target.files[0];
                       if (file) {
                         setphotoUrl(URL.createObjectURL(file));
+
+                        // Dispatch to Redux
+                        dispatch({
+                          type: "SET_PROFILE_PHOTO",
+                          payload: uploadedUrl,
+                        });
+
                       }
                     }}
                   />
