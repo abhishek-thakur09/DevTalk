@@ -124,6 +124,19 @@ const EditProfile = ({ user }) => {
                   </fieldset>
                 </div>
               </div>
+
+
+{/* PhotoUrl */}
+<fieldset className="fieldset mt-3">
+              <legend className="fieldset-legend font-bold">Photo URL</legend>
+              <input
+                type="text"
+                className="input bg-orange-100"
+                value={photoUrl}
+                onChange={(e) => setphotoUrl(e.target.value)}
+              />
+            </fieldset>
+
               {/* PhotoUrl */}
               <div>
                 <fieldset className="fieldset">

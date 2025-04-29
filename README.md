@@ -54,3 +54,12 @@ BODY
     Route=/connections  => connections
     Route=/profile  => Profile
     
+
+
+
+
+
+
+# Real time chat Using WEB-SOCKETS
+- Build Ui for chat window on /chat/:target_id
+- setup socket.io in backend
