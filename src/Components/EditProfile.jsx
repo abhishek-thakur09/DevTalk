@@ -51,153 +51,127 @@ const EditProfile = ({ user }) => {
   }
 
   return (
-    <>
-      <div className='flex justify-center gap-10 sm:gap-3 sm:my-5'>
-        <div className='flex justify-center h-auto sm:h-fit'>
-          <div className="card w-60 bg-orange-300 card-xl shadow-lg sm:w-72 lg:w-96">
-            <div className="card-body">
-              <h2 className="card-title flex justify-start -my-1 text-xl sm:-my-3">Update Profile</h2>
+<>
+  <div className="min-h-screen bg-gradient-to-br from-purple-300 via-pink-200 to-orange-100 flex items-center justify-center px-4 py-10 overflow-auto">
+    <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-10">
 
+      {/* Profile Form */}
+      <div className="flex-1 bg-white/20 backdrop-blur-md border border-white/30 shadow-xl rounded-2xl p-6 sm:p-8 overflow-auto">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Update Profile</h2>
 
-              <div className='flex gap-4 sm:flex-col sm:-my-2'>
-                {/* FirstName */}
-                <div className=' py-2'>
-                  <fieldset className="fieldset flex-row">
-                    <legend className="fieldset-legend font-bold">FirstName</legend>
-                    <input type="text"
-                      value={firstName}
-                      className="input  bg-orange-100"
-                      onChange={(e) => setfirstName(e.target.value)}
-                    />
-                  </fieldset>
-                </div>
-                {/* LastName */}
-                <div className=' py-2 sm:-my-7'>
-                  <fieldset className="fieldset flex-row">
-                    <legend className="fieldset-legend font-bold">LastName</legend>
-                    <input type="text"
-                      value={lastName}
-                      className="input  bg-orange-100"
-                      onChange={(e) => setlastName(e.target.value)}
-                    />
-                  </fieldset>
-                </div>
-              </div>
-
-
-
-              {/* Age */}
-              <div className='flex gap-4  sm:my-3'>
-                <div>
-                  <fieldset className="fieldset w-20">
-                    <legend className="fieldset-legend font-bold">Age</legend>
-                    <input type="text"
-                      value={age}
-                      className="input  bg-orange-100"
-                      onChange={(e) => setage(e.target.value)}
-                    />
-                  </fieldset>
-                </div>
-                {/* Gender */}
-                <div>
-                  <fieldset className="fieldset">
-                    <legend className="fieldset-legend font-bold">Gender</legend>
-                    <input type="text"
-                      value={gender}
-                      className="input  bg-orange-100"
-                      onChange={(e) => setgender(e.target.value)}
-                    />
-
-                    {/* change popover-1 and --anchor-1 names. Use unique names for each dropdown */}
-                    {/* For TSX uncomment the commented types below */}
-                    {/* <button className="btn" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" } /* as React.CSSProperties */}
-                    {/* Gender */}
-                    {/* </button> */}
-
-                    {/* <ul className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
-  popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" } /* as React.CSSProperties */ }
-                    {/* <li><a>male</a></li>
-  <li><a>female</a></li>
-  <li><a>others</a></li> */}
-
-                    {/* </ul>   */}
-                  </fieldset>
-                </div>
-              </div>
-
-
-{/* PhotoUrl */}
-<fieldset className="fieldset mt-3">
-              <legend className="fieldset-legend font-bold">Photo URL</legend>
-              <input
-                type="text"
-                className="input bg-orange-100"
-                value={photoUrl}
-                onChange={(e) => setphotoUrl(e.target.value)}
-              />
-            </fieldset>
-
-              {/* PhotoUrl */}
-              <div>
-                <fieldset className="fieldset">
-                  <legend className="fieldset-legend font-bold">PhotoUrl</legend>
-                  {/* <input type="text"
-                    value={photoUrl}
-                    className="input  bg-orange-100"
-                    onChange={(e) => setphotoUrl(e.target.value)}
-                  /> */}
-
-
-                  <input
-                    type="file"
-                    className="file-input bg-orange-100"
-                    onChange={(e) => {
-                      const file = e.target.files[0];
-                      if (file) {
-                        setphotoUrl(URL.createObjectURL(file));
-
-                        // Dispatch to Redux
-                        dispatch({
-                          type: "SET_PROFILE_PHOTO",
-                          payload: uploadedUrl,
-                        });
-
-                      }
-                    }}
-                  />
-
-                </fieldset>
-              </div>
-
-              {/* About */}
-              <div>
-                <fieldset className="fieldset sm:-my-4">
-                  <legend className="fieldset-legend font-bold">About</legend>
-                  <textarea
-                    value={about}
-                    className="textarea bg-orange-100"
-                    onChange={(e) => setabout(e.target.value)}
-                    placeholder="about..."></textarea>
-                </fieldset>
-              </div>
-            </div>
-            {/* <p className='text-red-600 text-sm sm:-my-4'>{error}</p> */}
-            <div className="flex py-3 card-actions justify-center">
-              <button className="btn bg-blue-400 sm:-mx-3" onClick={saveProfile}>Update Profile</button>
-            </div>
+        {/* Name Fields */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-4">
+          <div className="w-full">
+            <label className="block text-sm font-semibold text-gray-700 mb-1">First Name</label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setfirstName(e.target.value)}
+              className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+          <div className="w-full">
+            <label className="block text-sm font-semibold text-gray-700 mb-1">Last Name</label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setlastName(e.target.value)}
+              className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+            />
           </div>
         </div>
 
-        <UserCard user={{ firstName, lastName, photoUrl, age, gender, about }} />
-      </div>
-      {showTost && <div className="toast toast-top toast-center">
-        <div className="alert alert-success">
-          <span>Data Update Successfully😜</span>
+        {/* Age & Gender */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-4">
+          <div className="w-full sm:w-1/3">
+            <label className="block text-sm font-semibold text-gray-700 mb-1">Age</label>
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setage(e.target.value)}
+              className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+          <div className="w-full">
+            <label className="block text-sm font-semibold text-gray-700 mb-1">Gender</label>
+            <input
+              type="text"
+              value={gender}
+              onChange={(e) => setgender(e.target.value)}
+              className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+            />
+          </div>
+        </div>
+
+        {/* Photo URL */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-700 mb-1">Photo URL</label>
+          <input
+            type="text"
+            value={photoUrl}
+            onChange={(e) => setphotoUrl(e.target.value)}
+            className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+          />
+        </div>
+
+        {/* File Upload */}
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-700 mb-1">Upload Image</label>
+          <input
+            type="file"
+            className="file-input file-input-bordered bg-white/60 w-full"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                const uploadedUrl = URL.createObjectURL(file);
+                setphotoUrl(uploadedUrl);
+                dispatch({ type: "SET_PROFILE_PHOTO", payload: uploadedUrl });
+              }
+            }}
+          />
+        </div>
+
+        {/* About */}
+        <div className="mb-6">
+          <label className="block text-sm font-semibold text-gray-700 mb-1">About</label>
+          <textarea
+            value={about}
+            onChange={(e) => setabout(e.target.value)}
+            className="w-full px-4 py-2 bg-white/50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400"
+            rows="3"
+            placeholder="Tell us something about yourself..."
+          />
+        </div>
+
+        {/* Update Button */}
+        <div className="text-center">
+          <button
+            onClick={saveProfile}
+            className="px-6 py-2 bg-purple-500 text-white font-semibold rounded-lg shadow hover:bg-purple-600 transition"
+          >
+            Update Profile
+          </button>
         </div>
       </div>
-      }
 
-    </>
+      {/* UserCard */}
+      <div className="flex-1 flex items-center justify-center">
+        <UserCard user={{ firstName, lastName, photoUrl, age, gender, about }} />
+      </div>
+    </div>
+
+    {/* Toast */}
+    {showTost && (
+      <div className="toast toast-top toast-center z-50">
+        <div className="alert alert-success shadow-md">
+          <span>Data Updated Successfully 🎉</span>
+        </div>
+      </div>
+    )}
+  </div>
+</>
+
+
   )
 }
 

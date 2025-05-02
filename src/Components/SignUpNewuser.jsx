@@ -20,7 +20,7 @@ const SignUpNewuser = () => {
 
   const [showToast, setShowToast] = useState(false);
 
-  const {err, setErr} = useState('');
+  const {newerr, setnewErr} = useState('');
 
   const handleSignUp = async () => {
     try {
@@ -41,140 +41,151 @@ const SignUpNewuser = () => {
         }
       );
 
+      console.log(res);
+
       dispatch(addUser(res.data));
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
       }, 2000);
     } catch (err) {
-      setErr(err);
+      setnewErr(err);
     }
   };
 
   return (
     <>
-      <div className="flex justify-center gap-10 sm:gap-3 sm:my-5">
-        <div className="card w-60 bg-orange-300 card-xl shadow-lg sm:w-72 lg:w-96">
-          <div className="card-body">
-            <h2 className="card-title text-xl">Sign Up New User</h2>
+  <div className="min-h-screen flex items-center justify-center bg-orange-50 p-4 my-4">
+    <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 sm:p-8">
+      <h2 className="text-2xl font-semibold text-center text-orange-600 mb-6">
+        Sign Up New User
+      </h2>
 
-            {/* First & Last Name */}
-            <div className="flex gap-4 sm:flex-col">
-              <fieldset className="fieldset flex-row">
-                <legend className="fieldset-legend font-bold">First Name</legend>
-                <input
-                  type="text"
-                  className="input bg-orange-100"
-                  value={firstName}
-                  onChange={(e) => setfirstName(e.target.value)}
-                />
-              </fieldset>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* First Name */}
+        <div>
+          <label className="block font-semibold text-sm mb-1">First Name</label>
+          <input
+            type="text"
+            className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={firstName}
+            onChange={(e) => setfirstName(e.target.value)}
+          />
+        </div>
 
-              <fieldset className="fieldset flex-row">
-                <legend className="fieldset-legend font-bold">Last Name</legend>
-                <input
-                  type="text"
-                  className="input bg-orange-100"
-                  value={lastName}
-                  onChange={(e) => setlastName(e.target.value)}
-                />
-              </fieldset>
-            </div>
-
-            {/* Email ID */}
-            <fieldset className="fieldset flex-row mt-3">
-              <legend className="fieldset-legend font-bold">Email ID</legend>
-              <input
-                type="email"
-                className="input bg-orange-100"
-                value={emailId}
-                onChange={(e) => setemailId(e.target.value)}
-              />
-            </fieldset>
-
-            {/* Password */}
-            <fieldset className="fieldset flex-row mt-3">
-              <legend className="fieldset-legend font-bold">Password</legend>
-              <input
-                type="text"
-                className="input bg-orange-100"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </fieldset>
-
-            {/* Age & Gender */}
-            <div className="flex gap-4 sm:flex-col mt-3">
-              <fieldset className="fieldset w-full">
-                <legend className="fieldset-legend font-bold">Age</legend>
-                <input
-                  type="text"
-                  className="input bg-orange-100"
-                  value={age}
-                  onChange={(e) => setage(e.target.value)}
-                />
-              </fieldset>
-
-              <fieldset className="fieldset w-full">
-                <legend className="fieldset-legend font-bold">Gender</legend>
-                <input
-                  type="text"
-                  className="input bg-orange-100"
-                  value={gender}
-                  onChange={(e) => setgender(e.target.value)}
-                />
-              </fieldset>
-            </div>
-
-            {/* PhotoUrl */}
-            <fieldset className="fieldset mt-3">
-              <legend className="fieldset-legend font-bold">Photo URL</legend>
-              <input
-                type="text"
-                className="input bg-orange-100"
-                value={photoUrl}
-                onChange={(e) => setphotoUrl(e.target.value)}
-              />
-            </fieldset>
-
-            {/* About */}
-            <fieldset className="fieldset mt-3">
-              <legend className="fieldset-legend font-bold">About</legend>
-              <textarea
-                className="textarea bg-orange-100"
-                value={about}
-                onChange={(e) => setabout(e.target.value)}
-              />
-            </fieldset>
-
-          <div>
-            <a className='text-red-700 text-sm'> Please enter valid credentials!!</a>
-          </div>
-
-            <div className="flex justify-center mt-5">
-              <button className="btn bg-blue-400" onClick={handleSignUp}>
-                Sign Up
-              </button>
-            </div>
-
-            <div>
-              <Link to="/login" className='text-sm flex justify-end hover:text-blue-700 '>login?</Link>
-            </div>
-          </div>
-
-
+        {/* Last Name */}
+        <div>
+          <label className="block font-semibold text-sm mb-1">Last Name</label>
+          <input
+            type="text"
+            className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={lastName}
+            onChange={(e) => setlastName(e.target.value)}
+          />
         </div>
       </div>
 
-      {/* Success Toast */}
-      {showToast && (
-        <div className="toast toast-top toast-center">
-          <div className="alert alert-success">
-            <span>SignUp successfully 😊</span>
-          </div>
+      {/* Email */}
+      <div className="mt-4">
+        <label className="block font-semibold text-sm mb-1">Email ID</label>
+        <input
+          type="email"
+          className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          value={emailId}
+          onChange={(e) => setemailId(e.target.value)}
+        />
+      </div>
+
+      {/* Password */}
+      <div className="mt-4">
+        <label className="block font-semibold text-sm mb-1">Password</label>
+        <input
+          type="password"
+          className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+        {/* Age */}
+        <div>
+          <label className="block font-semibold text-sm mb-1">Age</label>
+          <input
+            type="text"
+            className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={age}
+            onChange={(e) => setage(e.target.value)}
+          />
+        </div>
+
+        {/* Gender */}
+        <div>
+          <label className="block font-semibold text-sm mb-1">Gender</label>
+          <input
+            type="text"
+            className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={gender}
+            onChange={(e) => setgender(e.target.value)}
+          />
+        </div>
+      </div>
+
+      {/* Photo URL */}
+      <div className="mt-4">
+        <label className="block font-semibold text-sm mb-1">Photo URL</label>
+        <input
+          type="text"
+          className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          value={photoUrl}
+          onChange={(e) => setphotoUrl(e.target.value)}
+        />
+      </div>
+
+      {/* About */}
+      <div className="mt-4">
+        <label className="block font-semibold text-sm mb-1">About</label>
+        <textarea
+          className="w-full p-2 rounded border border-orange-300 bg-orange-100 focus:outline-none focus:ring-2 focus:ring-orange-400"
+          value={about}
+          onChange={(e) => setabout(e.target.value)}
+        ></textarea>
+      </div>
+
+      {/* Error */}
+      {setnewErr && (
+        <div className="mt-3 text-sm text-red-600">
+          Please enter valid credentials!!
         </div>
       )}
-    </>
+
+      {/* Sign Up Button */}
+      <div className="mt-6 flex justify-center">
+        <button
+          onClick={handleSignUp}
+          className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg shadow"
+        >
+          Sign Up
+        </button>
+      </div>
+
+      {/* Login Link */}
+      <div className="mt-4 text-sm text-right">
+        <Link to="/login" className="text-blue-600 hover:underline">
+          Already have an account? Login
+        </Link>
+      </div>
+    </div>
+  </div>
+
+  {/* Toast */}
+  {showToast && (
+    <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-md z-50">
+      SignUp successfully 😊
+    </div>
+  )}
+</>
+
   );
 };
 

@@ -4,3 +4,6 @@
 @plugin "daisyui" {
   themes: caramellatte --default, forest --prefersdark, winter, autumn;
 }
+html, body, #root {
+  height: 100%;
+}

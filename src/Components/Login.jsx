@@ -35,43 +35,57 @@ const handleLogin = async()=>{
 }
 
   return (
-    <div className='flex justify-center my-4'>
-      <div className="card w-80 bg-orange-300 card-xl shadow-lg">
-        <div className="card-body">
-          <h2 className="card-title flex justify-center text-3xl">Login</h2>
+      <div className='flex justify-center items-center min-h-screen bg-orange-50'>
+        <div className="w-96 bg-white shadow-xl rounded-2xl p-8">
+          <h2 className="text-3xl font-bold text-center text-orange-600 mb-6">Login</h2>
+    
           {/* Email */}
-          <div className=' py-4'>
-            <fieldset className="fieldset">
-              <legend className="fieldset-legend font-bold">Email Id</legend>
-              <input type="text"
+          <div className="mb-4">
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Email Id</label>
+            <input
+              type="email"
               value={emailId}
-              className="input  bg-orange-100"
-              onChange={(e)=> setEmailId(e.target.value)}
-              />
-            </fieldset>
+              onChange={(e) => setEmailId(e.target.value)}
+              className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-orange-100"
+              placeholder="Enter your email"
+            />
           </div>
+    
           {/* Password */}
-          <div className=' py-1'>
-            <fieldset className="fieldset">
-              <legend className="fieldset-legend font-bold">Password</legend>
-              <input type="text" 
+          <div className="mb-2">
+            <label className="block text-sm font-semibold mb-1 text-gray-700">Password</label>
+            <input
+              type="password"
               value={password}
-              className="input  bg-orange-100"
-              onChange={(e)=> setPassword(e.target.value)}
-              />
-            </fieldset>
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-orange-100"
+              placeholder="Enter your password"
+            />
           </div>
-            <p className='text-red-600 text-sm'>{error}</p>
-          <div className="justify-end card-actions flex justify-center">
-            <button className="btn bg-green-200 hover:bg-green-500" onClick={handleLogin}>Login</button>
+    
+          {/* Error Message */}
+          {error && <p className='text-red-600 text-sm mb-2'>{error}</p>}
+    
+          {/* Login Button */}
+          <div className="flex justify-center mb-4">
+            <button
+              onClick={handleLogin}
+              className="w-full bg-orange-500 text-white font-semibold py-2 rounded-lg hover:bg-orange-600 transition duration-200"
+            >
+              Login
+            </button>
           </div>
-          <div className='flex text-sm justify-between my-2'>
-          <div >forgot Password</div>
-          <div ><Link to="/signup" className='hover:text-blue-900'>create new user?</Link></div>
+    
+          {/* Links */}
+          <div className="flex justify-between text-sm text-gray-600">
+            <span className="cursor-pointer hover:underline">Forgot Password?</span>
+            <Link to="/signup" className="hover:text-orange-600 hover:underline">
+              Create new user?
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </div>   
+
   )
 }
 

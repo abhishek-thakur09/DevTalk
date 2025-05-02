@@ -38,29 +38,37 @@ const Connections = () => {
 
 
   return (
-    <>
-      <div className='flex-col justify-center text-center my-8'>
+    <div className='py-10 min-h-screen w-full bg-gradient-to-br from-[#fdfbfb] via-[#ebedee] to-[#d1c4e9]'>
+      <div className='flex-col justify-center text-center p-8'>
         <div className='text-2xl font-bold text-orange-500'>Connections</div>
 
-        {connections.map((connection, key) => {
-          const { _id, firstName, lastName, age, gender, photoUrl, about } = connection;
-          return (
-              <div key={_id} className=' flex w-1/2 m-4 py-7 bg-orange-300 rounded shadow-2xl'>
+        <div className='flex flex-wrap justify-center mt-8'>
+          {connections.map((connection, key) => {
+            const { _id, firstName, lastName, age, gender, photoUrl, about } = connection;
+            return (
+              <div key={_id} className='w-3/4 sm:w-1/2 md:w-1/3 xl:w-1/4 p-4'>
+
+                <div className="flex flex-col bg-white/60 backdrop-blur-md rounded-2xl shadow-xl">
                 {/* Image */}
-                <div> <img className='w-20 h-20 p-2  ml-6 rounded-full' src={photoUrl}></img></div>
-               {/* INformation */}
-                <div>
-                <div className='font-bold text-xl'>{firstName + " " + lastName}</div>
-                <div className='text-sm'> {"Age : "+age}</div>
-                <div className='text-sm'>{"Gender : "+gender}</div>
-                <div className='text-sm '>{about}</div>
+                <div className='mx-auto mt-4'> <img className='w-24 h-24 rounded-full border-4 border-orange-300' src={photoUrl}></img></div>
+                {/* INformation */}
+                <div className='text-center py-4 px-6'>
+                  <div className='font-bold text-xl text-gray-800'>{firstName + " " + lastName}</div>
+                  <div className='text-sm text-gray-600'> {"Age : " + age}</div>
+                  <div className='text-sm text-gray-600'>{"Gender : " + gender}</div>
+                  <div className='text-sm text-gray-600'>{about}</div>
                 </div>
-            <Link to={"/chat/"+ _id}><button className="btn btn-outline bg-orange-400 text-white-200">Chat</button> </Link>
-            </div>
-          )
-        })}
+                <div className='text-center pb-4'>
+                <Link to={"/chat/" + _id}><button className="w-full bg-orange-400 text-white font-bold py-2 rounded-xl transition-all duration-300 hover:bg-orange-500 hover:scale-100 shadow-md">Chat</button> </Link>
+                </div>
+              </div>
+              </div>
+            )
+          })}
+        </div>
+
       </div>
-    </>
+    </div>
   )
 }
 

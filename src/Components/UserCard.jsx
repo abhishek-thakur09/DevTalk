@@ -28,27 +28,27 @@ const UserCard = ({ user }) => {
 
 
   return (
-    <>
-      <div className="card bg-base-100 bg-green-100 w-80 shadow-xl flex mt-5 sm:m-3 sm:h-fit lg:w-72 lg:h-96 lg:mt-1">
-        <figure className="px-10 pt-10">
+    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#fdfcfb] via-[#e2d1c3] to-[#a18cd1]">
+      <div className="card w-80 lg:w-72 lg:h-96 shadow-2xl rounded-2xl bg-white/30 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105">
+        <figure className="px-10 pt-8">
           <img
             src={photoUrl || null}
             alt="photo"
-            className="rounded-lg flex sm:-my-3" />
+            className="rounded-full w-24 h-24 object-cover shadow-lg" />
         </figure>
-        <div className="card-body items-center text-center">
-          <h2 className="card-title ml-0 m-1">{firstName + " " + lastName}</h2>
-          {age && <p className='font-medium -mt-1 mb-2'>{"age " + age}</p>}
-          {gender && <p className='font-medium -m-5 mb-2'>{"Gender " + gender}</p>}
+        <div className="card-body items-center text-center text-gray-800">
+          <h2 className="card-title text-xl font-semibold">{firstName + " " + lastName}</h2>
+          {age && <p className='text-sm font-medium text-gray-700'>{"age " + age}</p>}
+          {gender && <p className='text-sm font-medium text-gray-700'>{"Gender " + gender}</p>}
 
-          <p>{about}</p>
-          <div className="card-actions flex justify-center gap-4">
-            <button className="btn bg-pink-300" onClick={() => handleSendRequest("interested", _id)}>Interested</button>
-            <button className="btn bg-blue-400" onClick={() => handleSendRequest("ignore", _id)}>Ignored</button>
+          <p className='text-sm italic text-gray-600 mt-2'>{about}</p>
+          <div className="card-actions mt-4 flex justify-center gap-4">
+            <button className="btn bg-pink-400 text-white hover:bg-pink-500 transition duration-300 shadow-md rounded-xl px-4" onClick={() => handleSendRequest("interested", _id)}>Interested</button>
+            <button className="btn bg-blue-400 text-white hover:bg-blue-500 transition duration-300 shadow-md rounded-xl px-4" onClick={() => handleSendRequest("ignore", _id)}>Ignored</button>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

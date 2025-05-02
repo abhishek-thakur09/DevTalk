@@ -4,10 +4,15 @@ import { Base_Url } from '../utils/Constant'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed } from '../utils/FeedSlice'
 import UserCard from './UserCard'
+import { useNavigate } from 'react-router-dom'
 
 const Feed = () => {
     const feed = useSelector((store) => store.feed);
+    const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+
 
     const getFeed = async () => {
         if (feed) return;
@@ -30,11 +35,14 @@ const Feed = () => {
     if (!feed) return;
 
     if (feed.length <= 0)
-        return <h1 className='flex text-center justify-center my-10 font-semibold text-2xl text-orange-600'>No new users found</h1>
-
+        return <div className='flex justify-center items-center min-h-[60vh]'>
+            <h1 className='text-3xl font-semibold text-orange-600 bg-white/30 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No new users found</h1>
+        </div>
     return (
-        <div className='flex justify-center'>
-            <UserCard  user = {feed[0]}/>
+        <div className='flex justify-center items-center min-h-[60vh] transition-all duration-300'>
+            <div className='w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] xl:w-[30%]'>
+                <UserCard user={feed[0]} />
+            </div>
         </div>
     );
 };
