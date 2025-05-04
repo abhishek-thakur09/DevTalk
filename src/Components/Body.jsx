@@ -38,11 +38,15 @@ const Body = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar/>
-      <Outlet/>
+    <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("https://plus.unsplash.com/premium_photo-1681400745727-c69f8e47f524?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFjJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww")' }}>
+    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
+
+    <div className="relative z-10">
+      <Navbar />
+      <Outlet />
       <Footer />
     </div>
+  </div>
   )
 }
 

@@ -55,7 +55,7 @@ const SignUpNewuser = () => {
 
   return (
     <>
-  <div className="min-h-screen flex items-center justify-center bg-orange-50 p-4 my-4">
+  <div className="min-h-screen flex items-center justify-center bg-orange-50 p-4 my-4 relative min-h-screen bg-cover bg-center">
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-6 sm:p-8">
       <h2 className="text-2xl font-semibold text-center text-orange-600 mb-6">
         Sign Up New User

@@ -14,7 +14,7 @@ import Chat from "./src/Components/Chat"
 function App() {
 
   return (
-    <>
+    <div>
       <Provider store={appStore}>
         <BrowserRouter basename="/">
           <Routes>
@@ -30,7 +30,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Provider>
-    </>
+    </div>
   )
 }
 

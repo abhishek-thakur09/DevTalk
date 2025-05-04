@@ -42,6 +42,7 @@ const Navbar = () => {
         <div className="flex-1">
         {Login && <Link to="/" className="btn btn-ghost text-xl text-purple-700 font-bold tracking-wide mx-2">DevTalk💻</Link>}
         </div>
+
         {user && (
           <div className="flex items-center gap-4 mr-6">
             <p className='text-sm font-medium text-gray-700'> Welcome, {user.firstName}</p>
