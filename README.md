@@ -62,4 +62,16 @@ BODY
 
 # Real time chat Using WEB-SOCKETS
 - Build Ui for chat window on /chat/:target_id
-- setup socket.io in backend
+- setup socket.io in backend 
+- npm i socket.io 
+- setting up frontend socket.io-client
+- Initialize the chat
+- create socket connection
+- listen to events
+- emits the events
+- Improve the UI
+- Fix security BUG FIX - Can i send the message to a person who is not my friend?? - Auth in web sockets
+- BUG FIX - If i am not a friend, then i shouldn't be able to send message..
+- Show green status of chat if the person is online - [last seen 1hr ago]
+- Limit messages on API call (use pagination like feed api)
+- 

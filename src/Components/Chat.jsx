@@ -21,9 +21,10 @@ const Chat = () => {
         );
         console.log(chat);
         const chatMessage = chat?.data?.message.map((msg) => {
-            return { 
-                firstName: msg?.senderId.firstName, 
-                text: msg?.text }
+            return {
+                firstName: msg?.senderId?.firstName,
+                text: msg?.text
+            }
         });
         setMessage(chatMessage);
     };
@@ -104,11 +105,11 @@ const Chat = () => {
                 <div className='flex-1 bg-gradient-to-br from-orange-100 to-pink-100 overflow-y-auto p-4 space-y-4'>{/*Display message*/}
                     {(messages || []).map((msg, index) => {
                         return (
-                            <div key={index} className={"chat "+ 
-                                (user.firstName == msg.firstName ? "chat-end":"chat-start")
+                            <div key={index} className={"chat " +
+                                (user.firstName == msg.firstName ? "chat-end" : "chat-start")
                             }>
                                 <div className="chat-header">
-                                    {`${msg?.firstName}`}
+                                    {`${msg.firstName}`}
                                     <time className="text-[10px] text-gray-500 float-right mt-1 block">2 hours ago</time>
                                 </div>
                                 <div
