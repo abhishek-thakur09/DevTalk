@@ -21,9 +21,12 @@ const Chat = () => {
         );
         console.log(chat);
         const chatMessage = chat?.data?.message.map((msg) => {
+           const {senderId, text} = msg;
+           console.log(msg);
+           
             return {
-                firstName: msg?.senderId?.firstName,
-                text: msg?.text
+                firstName: senderId?.firstName,
+                text: text
             }
         });
         setMessage(chatMessage);
@@ -47,17 +50,17 @@ const Chat = () => {
         const socket = socketConnection();
         // As soon as pageLoaded , the socket connection is made and join chat event is emitted
         socket.emit("joinChat", {
-            Name: user?.firstName,
+            firstName: user?.firstName,
             userID,
             target_id,
             text: newmessages
         });
 
 
-        socket.on("messageReceived", ({ Name, text }) => {
-            console.log(Name + " : " + text);
+        socket.on("messageReceived", ({ firstName, text }) => {
+            console.log(firstName + " : " + text);
 
-            setMessage((messages) => [...messages, { Name, text }])
+            setMessage((messages) => [...messages, {firstName: firstName, text }])
         })
 
 
@@ -75,10 +78,10 @@ const Chat = () => {
         const server = socketConnection();
 
         server.emit("sendmessage", {
-            Name: user?.firstName,
+            firstName: user?.firstName,
             userID,
             target_id,
-            text: newmessages
+            text: newmessages,
         });
 
         setnewMessages("");
