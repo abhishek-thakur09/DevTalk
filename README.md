@@ -75,3 +75,34 @@ BODY
 - Show green status of chat if the person is online - [last seen 1hr ago]
 - Limit messages on API call (use pagination like feed api)
 - 
+
+
+
+
+
+
+# Deployment
+    - signup on AWS
+    - Launch instance
+    - chomd 400<secreat>.pep
+    - connet with ssh command (ssh -i "devTalk-secret.pem" ubuntu@ec2-56-228-26-50.eu-north-1.compute.amazonaws.com)
+    - install node -v(18.19.1)
+
+    - For Frontend
+               - Git clone <repo http> from git code
+               - npm install ---> install the dependencies
+               - sudo apt update
+               - sudo apt install nginx(engine X)
+               - sudo systemctl start nginx
+               - sudo systemctl enable nginx
+               - copy file from dist folder(Files, ) to /var/www/html to nginx
+               - scp -r dist/* /var/www/html/
+               - sudo scp -r dist/* /var/www/html/
+               - -r -> recursiveness
+
+        Enable port 80 on your instance ?
+        Go to instance -> then go to security -> security groups -> add inbounded -> put custom port(80) -> Then run the public address...
+        
+
+
+
