@@ -38,7 +38,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("https://plus.unsplash.com/premium_photo-1681400745727-c69f8e47f524?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFjJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww")' }}>
+    <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("https://www.freepik.com/free-photo/yellow-watercolor-paper_18379749.htm#fromView=keyword&page=1&position=45&uuid=b8e2de1a-f99e-45a4-b9bb-194758ea9bc2&query=Background")' }}>
     <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
 
     <div className="relative z-10">
