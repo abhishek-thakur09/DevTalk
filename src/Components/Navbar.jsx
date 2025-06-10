@@ -34,16 +34,17 @@ const Navbar = () => {
     }
   }
 
+
   
 
   return (
     <>
       <div className="navbar fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md border-b border-white/30">
         <div className="flex-1">
-        {Login && <Link to="/" className="btn btn-ghost text-xl text-purple-700 font-bold tracking-wide mx-2">DevTalk💻</Link>}
+        {Login && <Link to="/" className={`btn btn-ghost text-2xl ${!user ? 'pointer-events-none ': ''} text-indigo-900 font-bold tracking-wide mx-2`}>DevTalk</Link>}
         </div>
 
-        {user && (
+        {user && Login && (
           <div className="flex items-center gap-4 mr-6">
             <p className='text-sm font-medium text-gray-700'> Welcome, {user.firstName}</p>
             <div className="dropdown dropdown-end">

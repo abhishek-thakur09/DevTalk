@@ -10,7 +10,7 @@ const Footer = () => {
         px-6 md:px-12
       "
     >
-      <aside className="text-sm w-auto text-left truncate">
+      <aside className="text-sm w-auto text-gray-700 text-left truncate">
         <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>
 
