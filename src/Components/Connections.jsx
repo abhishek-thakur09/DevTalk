@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
+
+  console.log(connections)
+
   const [error, setError] = useState("");
   const dispatch = useDispatch();
 
@@ -59,7 +62,7 @@ const Connections = () => {
                   <div className='text-sm text-gray-600'>{about}</div>
                 </div>
                 <div className='text-center pb-4'>
-                <Link to={"/chat/" + _id}><button className="w-full bg-orange-400 text-white font-bold py-2 rounded-xl transition-all duration-300 hover:bg-orange-500 hover:scale-100 shadow-md">Chat</button> </Link>
+                <Link to={"/chat/" + _id} state={{connections}}><button className="w-full bg-orange-400 text-white font-bold py-2 rounded-xl transition-all duration-300 hover:bg-orange-500 hover:scale-100 shadow-md">Chat</button> </Link>
                 </div>
               </div>
               </div>

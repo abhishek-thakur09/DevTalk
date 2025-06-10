@@ -6,11 +6,16 @@ import axios from 'axios'
 import { Base_Url } from '../utils/Constant'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser } from '../utils/UserSlice'
+import { useLocation } from 'react-router-dom'
 
 
 
 
 const Body = () => {
+
+const location = useLocation();
+const HideNavAndFooter = location.pathname.startsWith("/chat");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((store) => store.user);
@@ -42,9 +47,9 @@ const Body = () => {
     <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
 
     <div className="relative z-10">
-      <Navbar />
+      {!HideNavAndFooter && <Navbar/>}
       <Outlet />
-      <Footer />
+       {!HideNavAndFooter && <Footer/>}
     </div>
   </div>
   )

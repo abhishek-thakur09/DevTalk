@@ -9,12 +9,17 @@ import Connections from "./src/Components/Connections"
 import Request from "./src/Components/Request"
 import SignUpNewuser from "./src/Components/SignUpNewuser"
 import Chat from "./src/Components/Chat"
+import { useLocation } from "react-router-dom"
+import Navbar from "./src/Components/Navbar"
+import Footer from "./src/Components/Footer"
 
 
 function App() {
 
+
   return (
-    <div>
+    <>
+
       <Provider store={appStore}>
         <BrowserRouter basename="/">
           <Routes>
@@ -30,7 +35,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Provider>
-    </div>
+    </>
   )
 }
 
