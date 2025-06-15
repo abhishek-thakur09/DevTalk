@@ -4,6 +4,8 @@ import { socketConnection } from '../utils/Socket';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { Base_Url } from '../utils/Constant';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 const Chat = () => {
     const location = useLocation();
@@ -18,6 +20,9 @@ const Chat = () => {
     const connection = location.state?.connections;
     console.log(connection[0]?.firstName);
 
+    // use to extend real time
+    dayjs.extend(relativeTime);
+
 
 
     const fetchMessages = async () => {
@@ -26,12 +31,13 @@ const Chat = () => {
         );
         console.log(chat);
         const chatMessage = chat?.data?.message.map((msg) => {
-            const { senderId, text } = msg;
+            const { senderId, text, time } = msg;
             console.log(msg);
 
             return {
                 firstName: senderId?.firstName,
-                text: text
+                text: text,
+                time,
             }
         });
         setMessage(chatMessage);
@@ -65,7 +71,7 @@ const Chat = () => {
         socket.on("messageReceived", ({ firstName, text }) => {
             console.log(firstName + " : " + text);
 
-            setMessage((messages) => [...messages, { firstName: firstName, text }])
+            setMessage((messages) => [...messages, { firstName: firstName, text, time: new Date().toISOString() }]);
         })
 
 
@@ -92,6 +98,9 @@ const Chat = () => {
         setnewMessages("");
     }
 
+    const targetConnection = connection?.find(
+        (user) => user._id === target_id
+    );
 
 
 
@@ -106,7 +115,7 @@ const Chat = () => {
                         <Link to="/connections" className="absolute left-3 top-1/2 -translate-y-1/2">
                             <img className="h-8 w-8" src="/back.png" alt="Back" />
                         </Link>
-                        <h1 className="text-xl sm:text-2xl text-center font-semibold text-gray-800">{connection[0].firstName}, {connection[0].lastName}</h1>
+                        <h1 className="text-xl sm:text-2xl text-center font-semibold text-gray-800">{targetConnection?.firstName}, {targetConnection?.lastName}</h1>
                         {connection &&
                             <div className='flex justify-center'>
                                 <div className='flex items-center gap-1'>
@@ -127,7 +136,9 @@ const Chat = () => {
                             >
                                 <div className="chat-header text-xs font-semibold text-gray-600">
                                     {msg.firstName}
-                                    <time className="text-[10px] text-gray-500 ml-2 block">2 hours ago</time>
+                                    <time className="text-[10px] text-gray-500 ml-2 block">
+                                        {dayjs(msg.createdAt).format("DD MM , hh:mm A" )}
+                                    </time>
                                 </div>
                                 <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg break-words p-3 rounded-2xl shadow-md bg-white text-sm text-gray-800">
                                     {msg.text}

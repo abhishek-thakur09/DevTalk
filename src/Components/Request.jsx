@@ -12,13 +12,16 @@ const Request = () => {
     // HAndle Review request
     const handleReviewRequest = async (status, _id) => {
         try {
-            const res = axios.post(
+            const res = await axios.post(
                 Base_Url + "/request/review/" + status + "/" + _id,
                 {},
                 { withCredentials: true }
             );
             dispatch(removeRequest(_id));
-        } catch (err) { }
+
+        } catch (err) {
+            console.error("Failed to review request:", err);
+        }
     }
 
 
@@ -43,37 +46,62 @@ const Request = () => {
     }
 
     if (requests.length === 0) {
-        return <h1 className="flex justify-center my-10 font-semibold text-orange-600 text-2xl">No connections Found</h1>
+        return (
+            <div className="flex justify-center items-center h-48">
+                <h1 className="text-3xl font-bold text-blue-700">No connections found</h1>
+            </div>
+        )
     }
 
 
     return (
         <>
-            <div className='flex-col justify-center text-center my-8'>
-                <div className='text-2xl font-bold text-orange-500'>Connection Requests</div>
+            <div className='flex flex-col items-center my-8 px-2'>
+                <div className='text-2xl font-bold text-blue-500 mb-4'>Connection Requests</div>
 
-                {
-                    requests.map((request) => {
-                        const { _id, firstName, lastName, age, gender, photoUrl, about } = request.fromUserId;
-                        return (
-                            <div key={_id} className='flex justify-between items-center w-1/2 m-4 py-7 h-38 bg-orange-300 rounded shadow-2xl'>
-                                {/* Image */}
-                                <div> <img className='w-20 h-20 m-2 rounded-full object-contain' src={photoUrl || null}></img></div>
-                                {/* INformation */}
-                                <div>
-                                    <div className='font-bold text-xl'>{firstName + " " + lastName}</div>
-                                    <div className='text-sm'> {"Age : " + age}</div>
-                                    <div className='text-sm'>{"Gender : " + gender}</div>
-                                    <div className='text-sm '>{about}</div>
-                                </div>
-                                <div className='m-5'>
-                                    <button className="btn w-16 m-2 btn-success shadow-1xl" onClick={() => handleReviewRequest("accepted", request.fromUserId)}>Accept</button>
-                                    <button className="btn w-16 btn-error shadow-1xl" onClick={() => handleReviewRequest("rejected", request._id)}>Reject</button>
-                                </div>
+                {requests.map((request) => {
+                    const { _id, firstName, lastName, age, gender, photoUrl, about } = request.fromUserId;
+
+                    return (
+                        <div
+                            key={request._id}
+                            className='flex flex-col sm:flex-row sm:justify-between items-center w-full sm:w-[90%] md:w-[80%] lg:w-[70%] bg-blue-100 rounded shadow-2xl p-4 my-4 space-y-4 sm:space-y-0 sm:space-x-4'
+                        >
+                            {/* Image */}
+                            <img
+                                className='w-20 h-20 rounded-full object-cover'
+                                src={photoUrl || "https://via.placeholder.com/150"}
+                                alt='User'
+                            />
+
+                            {/* Information */}
+                            <div className='text-center sm:text-left'>
+                                <div className='font-bold text-xl'>{firstName + " " + lastName}</div>
+                                <div className='text-sm'>Age: {age}</div>
+                                <div className='text-sm'>Gender: {gender}</div>
+                                <div className='text-sm'>{about}</div>
                             </div>
-                        )
-                    })}
+
+                            {/* Buttons */}
+                            <div className='flex space-x-2'>
+                                <button
+                                    className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
+                                    onClick={() => handleReviewRequest("accepted", request._id)}
+                                >
+                                    Accept
+                                </button>
+                                <button
+                                    className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+                                    onClick={() => handleReviewRequest("rejected", request._id)}
+                                >
+                                    Reject
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
+
         </>
     )
 }

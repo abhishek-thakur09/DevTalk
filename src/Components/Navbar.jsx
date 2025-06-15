@@ -35,21 +35,21 @@ const Navbar = () => {
   }
 
 
-  
+
 
   return (
     <>
       <div className="navbar fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md border-b border-white/30">
         <div className="flex-1">
-        {Login && <Link to="/" className={`btn btn-ghost text-2xl ${!user ? 'pointer-events-none ': ''} text-indigo-900 font-bold tracking-wide mx-2`}>DevTalk</Link>}
+          {Login && <Link to="/" className={`btn btn-ghost text-2xl ${!user ? 'pointer-events-none ' : ''} text-indigo-900 font-bold tracking-wide mx-2`}>DevTalk</Link>}
         </div>
 
-        {user && Login && (
+        {user && (
           <div className="flex items-center gap-4 mr-6">
             <p className='text-sm font-medium text-gray-700'> Welcome, {user.firstName}</p>
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full ring ring-purple-300 ring-offset-base-100 ring-offset-2">
+                <div className="w-10 rounded-full ring ring-blue-300 ring-offset-base-100 ring-offset-2">
                   <img
                     alt="Tailwind CSS Navbar component"
                     src={user.photoUrl} />
@@ -57,11 +57,10 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow-xl rounded-box w-52 bg-white/40 backdrop-blur-md border border-white/20 text-gray-800">
+                className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow-xl rounded-box w-52 bg-white/70 backdrop-blur-lg border border-white/20 text-gray-800">
                 <li>
                   <Link to="/profile" className="justify-between">
                     Profile
-                    <span className="badge badge-accent">New</span>
                   </Link>
                 </li>
                 <li>

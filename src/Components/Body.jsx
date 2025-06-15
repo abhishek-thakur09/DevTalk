@@ -43,15 +43,16 @@ const HideNavAndFooter = location.pathname.startsWith("/chat");
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-cover bg-center select-none" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1503480207415-fdddcc21d5fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww")' }}>
-    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
+ <div className="relative min-h-screen bg-gradient-to-r from-indigo-400 via-blue-100 to-cyan-100 bg-cover bg-center select-none">
+  <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
 
-    <div className="relative z-10">
-      {!HideNavAndFooter && <Navbar/>}
-      <Outlet />
-       {!HideNavAndFooter && <Footer/>}
-    </div>
+  <div className="relative z-10">
+    {!HideNavAndFooter && <Navbar />}
+    <Outlet />
+    {!HideNavAndFooter && <Footer />}
   </div>
+</div>
+
   )
 }
 

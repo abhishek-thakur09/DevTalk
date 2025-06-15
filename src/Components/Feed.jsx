@@ -10,7 +10,6 @@ const Feed = () => {
     const feed = useSelector((store) => store.feed);
     const user = useSelector((store) => store.user);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
 
 
@@ -29,14 +28,14 @@ const Feed = () => {
 
     useEffect(() => {
         getFeed();
-    }, []);
+    }, [user]);
 
 
     if (!feed) return;
 
     if (feed.length <= 0)
         return <div className='flex justify-center items-center min-h-[60vh]'>
-            <h1 className='text-3xl font-semibold text-orange-600 bg-white/30 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No new users found</h1>
+            <h1 className='text-3xl font-semibold text-blue-600 bg-white/30 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No new users found</h1>
         </div>
     return (
         <div className='flex justify-center items-center min-h-[60vh] transition-all duration-300'>

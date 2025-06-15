@@ -12,6 +12,7 @@ import Chat from "./src/Components/Chat"
 import { useLocation } from "react-router-dom"
 import Navbar from "./src/Components/Navbar"
 import Footer from "./src/Components/Footer"
+import ForgotPass from "./src/Components/ForgotPass"
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/forgot-password"  element={<ForgotPass/>} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/connections" element={<Connections />} />
               <Route path="/request" element={<Request />}></Route>
