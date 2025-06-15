@@ -100,9 +100,27 @@ BODY
                - sudo scp -r dist/* /var/www/html/
                - -r -> recursiveness
 
+<!-- for backend -->
         Enable port 80 on your instance ?
         Go to instance -> then go to security -> security groups -> add inbounded -> put custom port(80) -> Then run the public address...
-        
+        - allowed ec2 instance public IP on mongodb server
+        - npm install pm2 -g
+        - pm2 start npm --name "devtalk-backend" --start
+        - pm2 logs
+        - pm2 list, pm2 flish <name>, pm2 stop <name>, pm2 delete <name>
+        - config nginx - /etc/nginx/sites-available/default
+        - restart nginx - sudo systemctl  restart nginx
+        - modify the base_url in frontend project to /api
+
+         location /api/ {
+        proxy_pass http://localhost:9999/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
 
 
 
