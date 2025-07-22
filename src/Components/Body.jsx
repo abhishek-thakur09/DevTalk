@@ -43,7 +43,7 @@ const HideNavAndFooter = location.pathname.startsWith("/chat");
   }, []);
 
   return (
- <div className="relative min-h-screen bg-gradient-to-r from-indigo-400 via-blue-100 to-cyan-100 bg-cover bg-center select-none">
+ <div className="relative min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 bg-cover bg-center select-none">
   <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
 
   <div className="relative z-10">

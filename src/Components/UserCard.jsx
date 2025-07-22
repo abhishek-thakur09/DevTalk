@@ -28,9 +28,8 @@ const UserCard = ({ user }) => {
 
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br">
-      <div className="card w-80 lg:w-72 lg:h-96 shadow-2xl rounded-2xl bg-white/30 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105">
-        <figure className="px-10 pt-8">
+ <div className="min-h-screen w-full flex items-center justify-center"> 
+<div className="card w-full lg:w-72 lg:h-96 shadow-2xl rounded-2xl bg-white/30 backdrop-blur-md border border-white/20 transition-all duration-300 hover:scale-105">        <figure className="px-10 pt-8">
           <img
             src={photoUrl || null}
             alt="photo"

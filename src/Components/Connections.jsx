@@ -38,14 +38,14 @@ const Connections = () => {
   if (connections.length === 0) {
     return (
       <div className='flex justify-center items-center min-h-[60vh]'>
-            <h1 className='text-3xl font-semibold text-blue-600 bg-white/30 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No connections found</h1>
+            <h1 className='text-3xl font-semibold bg-gradient-to-br from-blue-100 to-blue-300 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No connections found</h1>
         </div>
     )
   }
 
 
   return (
-    <div className='py-10 min-h-screen w-full bg-gradient-to-br from-[#fdfbfb] via-[#ebedee] to-[#d1c4e9]'>
+    <div className='py-10 min-h-screen w-full bg-gradient-to-br from-blue-100 to-blue-300'>
       <div className='flex-col justify-center text-center p-8'>
         <div className='flex justify-center text-center text-2xl font-bold text-blue-500'>Connections</div>
 

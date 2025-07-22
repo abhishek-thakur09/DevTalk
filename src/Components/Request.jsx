@@ -47,17 +47,17 @@ const Request = () => {
 
     if (requests.length === 0) {
         return (
-            <div className="flex justify-center items-center h-48">
-                <h1 className="text-3xl font-bold text-blue-700">No connections found</h1>
-            </div>
+          <div className='flex justify-center items-center min-h-[60vh]'>
+            <h1 className='text-3xl font-semibold text-blue-600 bg-gradient-to-br from-blue-100 to-blue-300 backdrop-blur-md px-6 py-4 rounded-2xl shadow-md transition-all duration-300'>No Requests found</h1>
+        </div>
         )
     }
 
 
     return (
-        <>
+        <div className='min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center px-6 py-10 overflow-auto'>
             <div className='flex flex-col items-center my-8 px-2'>
-                <div className='text-2xl font-bold text-blue-500 mb-4'>Connection Requests</div>
+                <div className='text-2xl  font-bold text-blue-500 mb-4'>Connection Requests</div>
 
                 {requests.map((request) => {
                     const { _id, firstName, lastName, age, gender, photoUrl, about } = request.fromUserId;
@@ -65,11 +65,11 @@ const Request = () => {
                     return (
                         <div
                             key={request._id}
-                            className='flex flex-col sm:flex-row sm:justify-between items-center w-full sm:w-[90%] md:w-[80%] lg:w-[70%] bg-blue-100 rounded shadow-2xl p-4 my-4 space-y-4 sm:space-y-0 sm:space-x-4'
+                            className='flex flex-col sm:flex-row sm:justify-between  items-center w-full sm:w-[90%] md:w-[80%] lg:w-[70%] bg-blue-100 rounded shadow-3xl p-4 my-4 space-y-4 sm:space-y-0 sm:space-x-4'
                         >
                             {/* Image */}
                             <img
-                                className='w-20 h-20 rounded-full object-cover'
+                                className='w-20 h-20 border-blue-200 rounded-full object-cover'
                                 src={photoUrl || "https://via.placeholder.com/150"}
                                 alt='User'
                             />
@@ -102,7 +102,7 @@ const Request = () => {
                 })}
             </div>
 
-        </>
+        </div>
     )
 }
 

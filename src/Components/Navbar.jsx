@@ -57,7 +57,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow-xl rounded-box w-52 bg-white/70 backdrop-blur-lg border border-white/20 text-gray-800">
+                className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow-xl rounded-box w-52 bg-gradient-to-br from-blue-100 to-blue-300 backdrop-blur-xl border border-white/20 text-gray-800 hover:bg-blue-200">
                 <li>
                   <Link to="/profile" className="justify-between">
                     Profile
