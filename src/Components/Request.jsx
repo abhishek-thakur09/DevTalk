@@ -25,12 +25,14 @@ const Request = () => {
     }
 
 
-    // Handle connection Requests
+    // Handle connection Requests and store them in redux store
     const handleRequest = async () => {
         try {
             const res = await axios.get(Base_Url + "/user/requests/received", { withCredentials: true });
 
-            dispatch(addRequests(res?.data?.data));
+            dispatch(addRequests(res?.data?.data));           
+            console.log(res?.data?.data);
+
         }
         catch (err) {
             console.log(err);

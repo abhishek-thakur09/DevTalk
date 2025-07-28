@@ -17,6 +17,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   // const userData = useSelector((store) => store.user);
 
+  console.log('====================================');
+  console.log(user);
+  console.log('====================================');
 
   const handleLogout = async () => {
 

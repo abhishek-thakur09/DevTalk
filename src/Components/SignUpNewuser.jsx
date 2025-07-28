@@ -122,7 +122,7 @@ const SignUpNewuser = () => {
             />
             <button
               type="button"
-              className="absolute right-3 top-7"
+              className="absolute right-3 top-8"
               onClick={() => setShowPassword(!showPassword)}
             >
                {showPassword ? (
@@ -220,7 +220,7 @@ const SignUpNewuser = () => {
           {/* Link to Login */}
           {!user && (
             <div className="mt-4 text-center text-sm">
-              <Link to="/login" className="text-blue-700 hover:underline">
+              <Link to="/login" className="text-black hover:underline hover:text-indigo-600">
                 Already have an account? Login
               </Link>
             </div>
@@ -230,7 +230,7 @@ const SignUpNewuser = () => {
 
       {/* Toast */}
       {showToast && (
-        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-md z-50">
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-blue-700 text-white px-4 py-2 rounded shadow-md z-50">
           SignUp successfully 😊
         </div>
       )}

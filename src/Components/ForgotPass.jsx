@@ -104,13 +104,13 @@ const ForgotPass = () => {
           </div>
           <div>
             {errorMsg && (
-              <p className="text-red-600 text-sm mb-4 text-center">
+              <p className="text-red-600 text-sm m-1 text-center">
                 {errorMsg}
               </p>
             )}
           </div>
 
-          <div className="flex justify-center p-6 item-center">
+          <div className="flex justify-center p-4 item-center">
             <button
               onClick={handlepass}
               className="w-full border p-2 rounded-lg bg-indigo-600 text-white font-semibold "

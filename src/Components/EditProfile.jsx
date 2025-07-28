@@ -12,7 +12,7 @@ const EditProfile = ({ user }) => {
   const [age, setage] = useState(user.age);
   const [gender, setgender] = useState(user.gender || "");
   const [about, setabout] = useState(user.about);
-  const [photoUrl, setphotoUrl] = useState(user.photo);
+  const [photoUrl, setphotoUrl] = useState(user.photoUrl);
 
   const dispatch = useDispatch();
 
@@ -39,6 +39,10 @@ const EditProfile = ({ user }) => {
 
       dispatch(addUser(res?.data));
       setShowTost(true);
+
+        if (res.status === 200) {
+      window.location.reload();
+    }
       setTimeout(() => {
         setShowTost(false);
       }, 2000);
@@ -48,11 +52,6 @@ const EditProfile = ({ user }) => {
   };
 
 
-
-
-  useEffect(() => {
-    console.log(gender);
-  }, [gender]);
 
   return (
     <>
@@ -169,7 +168,7 @@ const EditProfile = ({ user }) => {
         {/* Toast */}
         {showTost && (
           <div className="toast toast-top toast-center z-50">
-            <div className="alert alert-success shadow-md">
+            <div className="alert bg-blue-300 text-white shadow-md">
               <span>Data Updated Successfully 🎉</span>
             </div>
           </div>
